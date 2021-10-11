@@ -8,10 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let scrollView = UIScrollView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
+        scrollView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height)
+        scrollView.contentSize = CGSize(width: view.frame.width , height: view.frame.height * 3)
+        scrollView.isPagingEnabled = true
+        
+        view.addSubview(scrollView)
+        
+        
     }
 
 
