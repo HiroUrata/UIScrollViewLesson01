@@ -21,7 +21,7 @@ class ViewController: UIViewController {
        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height)
-        
+        tableView.isEditing = true
         view.addSubview(tableView)
         
         tableView.dataSource = self
@@ -74,6 +74,15 @@ extension ViewController:UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        
+        return true
+    }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        cellContentsArray.remove(at: sourceIndexPath.row)
+        cellContentsArray.insert(cellContentsArray[sourceIndexPath.row], at: destinationIndexPath.row)
+    }
     
 }
