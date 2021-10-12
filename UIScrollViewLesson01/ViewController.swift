@@ -7,17 +7,22 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
     
 //    let scrollView = UIScrollView()
     
     let tableView = UITableView()
     
+    var cellContentsArray = ["UIKit","SwiftUI","MapKit","ARKit","CoreML","WebKit","Foundation","LocalAuthentication","CoreGraphics","Combine"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height)
+        
+        view.addSubview(tableView)
         
         tableView.dataSource = self
         
@@ -56,12 +61,17 @@ class ViewController: UIViewController {
 extension ViewController:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        
+        return cellContentsArray.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = cellContentsArray[indexPath.row]
+     
+        return cell
     }
     
     
