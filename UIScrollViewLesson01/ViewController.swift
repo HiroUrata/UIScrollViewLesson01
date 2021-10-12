@@ -9,45 +9,61 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let scrollView = UIScrollView()
+//    let scrollView = UIScrollView()
+    
+    let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        scrollView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height)
-        scrollView.contentSize = CGSize(width: view.frame.width , height: view.frame.height * 3)
-        scrollView.isPagingEnabled = true
-        scrollView.backgroundColor = .systemIndigo
-        view.addSubview(scrollView)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height)
         
-        let topLabel = UILabel(frame: CGRect(x: scrollView.frame.maxX / 4, y: scrollView.frame.maxY / 10, width: scrollView.frame.width / 2, height: scrollView.frame.height / 20))
-        topLabel.text = "Top"
-        topLabel.font = UIFont.boldSystemFont(ofSize: 25)
-        topLabel.textColor = .white
-        topLabel.textAlignment = .center
-        scrollView.addSubview(topLabel)
-        
-        let centerLabel = UILabel(frame: CGRect(x: scrollView.frame.maxX / 4, y: scrollView.frame.maxY + scrollView.frame.maxY / 10, width: scrollView.frame.width / 2, height: scrollView.frame.height / 20))
-        centerLabel.text = "Center"
-        centerLabel.font = UIFont.boldSystemFont(ofSize: 25)
-        centerLabel.textColor = .white
-        centerLabel.textAlignment = .center
-        scrollView.addSubview(centerLabel)
-        
-        let bottomLabel = UILabel(frame: CGRect(x: scrollView.frame.maxX / 4, y: (scrollView.frame.maxY * 2) + scrollView.frame.maxY / 10, width: scrollView.frame.width / 2, height: scrollView.frame.height / 20))
-        bottomLabel.text = "Bottom"
-        bottomLabel.font = UIFont.boldSystemFont(ofSize: 25)
-        bottomLabel.textColor = .white
-        bottomLabel.textAlignment = .center
-        scrollView.addSubview(bottomLabel)
+        tableView.dataSource = self
         
         
-        
-        
-        
-        
+//        scrollView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height)
+//        scrollView.contentSize = CGSize(width: view.frame.width , height: view.frame.height * 3)
+//        scrollView.isPagingEnabled = true
+//        scrollView.backgroundColor = .systemIndigo
+//        view.addSubview(scrollView)
+//
+//        let topLabel = UILabel(frame: CGRect(x: scrollView.frame.maxX / 4, y: scrollView.frame.maxY / 10, width: scrollView.frame.width / 2, height: scrollView.frame.height / 20))
+//        topLabel.text = "Top"
+//        topLabel.font = UIFont.boldSystemFont(ofSize: 25)
+//        topLabel.textColor = .white
+//        topLabel.textAlignment = .center
+//        scrollView.addSubview(topLabel)
+//
+//        let centerLabel = UILabel(frame: CGRect(x: scrollView.frame.maxX / 4, y: scrollView.frame.maxY + scrollView.frame.maxY / 10, width: scrollView.frame.width / 2, height: scrollView.frame.height / 20))
+//        centerLabel.text = "Center"
+//        centerLabel.font = UIFont.boldSystemFont(ofSize: 25)
+//        centerLabel.textColor = .white
+//        centerLabel.textAlignment = .center
+//        scrollView.addSubview(centerLabel)
+//
+//        let bottomLabel = UILabel(frame: CGRect(x: scrollView.frame.maxX / 4, y: (scrollView.frame.maxY * 2) + scrollView.frame.maxY / 10, width: scrollView.frame.width / 2, height: scrollView.frame.height / 20))
+//        bottomLabel.text = "Bottom"
+//        bottomLabel.font = UIFont.boldSystemFont(ofSize: 25)
+//        bottomLabel.textColor = .white
+//        bottomLabel.textAlignment = .center
+//        scrollView.addSubview(bottomLabel)
     }
 
 
 }
 
+extension ViewController:UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
+    
+}
