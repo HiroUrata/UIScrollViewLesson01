@@ -81,8 +81,12 @@ extension ViewController:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
+        let cellContent = cellContentsArray[sourceIndexPath.row]
+        print(cellContentsArray.count)
         cellContentsArray.remove(at: sourceIndexPath.row)
-        cellContentsArray.insert(cellContentsArray[sourceIndexPath.row], at: destinationIndexPath.row)
+        print(cellContentsArray.count)
+        cellContentsArray.insert(cellContent, at: destinationIndexPath.row)
+        print(cellContentsArray.count)
     }
     
 }
