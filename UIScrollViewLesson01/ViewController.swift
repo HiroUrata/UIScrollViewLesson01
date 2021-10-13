@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         view.addSubview(tableView)
         
         tableView.dataSource = self
+        tableView.delegate = self
         
         
 //        scrollView.frame = CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height)
@@ -89,4 +90,17 @@ extension ViewController:UITableViewDataSource{
         print(cellContentsArray.count)
     }
     
+}
+
+extension ViewController:UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        
+        return false
+    }
 }
